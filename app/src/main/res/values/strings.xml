@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SmartboxTestTask</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="image">Image</string>
 </resources>

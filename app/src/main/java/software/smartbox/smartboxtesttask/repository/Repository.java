@@ -3,6 +3,7 @@ package software.smartbox.smartboxtesttask.repository;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,12 +43,15 @@ public class Repository {
     }
 
     public void refreshData() {
+        Log.d("TAG", "refreshData: ");
         executor.execute(() ->
                 smartboxService.downloadFileWithFixedUrl().enqueue(new Callback<List<Location>>() {
 
                     @Override
                     public void onResponse(@NonNull Call<List<Location>> call, @NonNull Response<List<Location>> response) {
+                        Log.d("TAG", "onResponse: ");
                         if (response.isSuccessful() && response.body() != null) {
+                            Log.d("TAG", "onResponse: succesfull " + response.body().size());
                             ArrayList<Location> eventList = new ArrayList<>();
                             ArrayList<Location> shopList = new ArrayList<>();
                             for (Location item : response.body()) {
@@ -70,8 +74,27 @@ public class Repository {
                     @Override
                     public void onFailure(@NonNull Call<List<Location>> call, @NonNull Throwable t) {
                         //todo implement alert
+                        Log.d("TAG", "onFailure: " + t.getMessage());
+                        refreshData();
                     }
                 })
         );
+    }
+
+    public Location getLocation(int locationId, ELocationType type) {
+        List<Location> locations = null;
+        switch (type) {
+            case Event:
+                locations = events.getValue();
+                break;
+            case Shop:
+                locations = shops.getValue();
+                break;
+        }
+        if (locations != null)
+            for (Location location : locations)
+                if (location.getId().equals(locationId))
+                    return location;
+        return null;
     }
 }

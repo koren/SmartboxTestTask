@@ -11,10 +11,10 @@ public class Location {
     private String type;
 
     @SerializedName("title")
-    public String title;
+    private String title;
 
     @SerializedName("shortDescription")
-    public String shortDescription;
+    private String shortDescription;
 
     @SerializedName("description")
     private String description;

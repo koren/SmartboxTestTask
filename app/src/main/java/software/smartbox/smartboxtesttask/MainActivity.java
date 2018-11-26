@@ -12,16 +12,13 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjection;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
-import software.smartbox.smartboxtesttask.repository.Repository;
+import software.smartbox.smartboxtesttask.data.ELocationType;
 import software.smartbox.smartboxtesttask.ui.list.SmartboxListFragment;
 
 public class MainActivity extends AppCompatActivity implements HasSupportFragmentInjector {
 
     @Inject
     DispatchingAndroidInjector<Fragment> dispatchingAndroidInjector;
-
-    @Inject
-    Repository repository;
 
     @Override
     public DispatchingAndroidInjector<Fragment> supportFragmentInjector() {
@@ -37,20 +34,17 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Android World");
-
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.addTab(tabs.newTab().setText("Events"));
         tabs.addTab(tabs.newTab().setText("Shops"));
 
         ViewPager viewPager = findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new SmartboxListFragment(), "ONE");
-        adapter.addFragment(new SmartboxListFragment(), "TWO");
+        adapter.addFragment(SmartboxListFragment.newInstance(ELocationType.Event), ELocationType.Event.presentation);
+        adapter.addFragment(SmartboxListFragment.newInstance(ELocationType.Shop), ELocationType.Shop.presentation);
         viewPager.setAdapter(adapter);
 
         tabs.setupWithViewPager(viewPager);
-
-        repository.refreshData();
     }
 }
 

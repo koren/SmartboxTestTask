@@ -6,10 +6,112 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
+    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="subtitleTextAppearance">@style/ToolbarText</item>
+    </style>
+
+    <style name="TabLayout" parent="Widget.Design.TabLayout">
+        <item name="subtitleTextAppearance">@style/TabLayoutText</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabIndicatorColor">@color/tabIndicatorColor</item>
+    </style>
+
+    <style name="ListItemTitle" parent="ListItemTitleText" />
+
+    <style name="ListItemShortDescription" parent="ListItemDescriptionText" />
+
+    <style name="DetailsTitle" parent="DetailsTitleText" />
+
+    <style name="DetailsShortDescription" parent="DetailsShortDescriptionText" />
+
+    <style name="DetailsDescription">
+        <item name="subtitleTextAppearance">@style/DetailsDescriptionText</item>
+    </style>
+
+    <style name="Button">
+        <item name="subtitleTextAppearance">@style/ButtonText</item>
+        <item name="android:height">50dp</item>
+    </style>
+
+    <style name="Text">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ToolbarText" parent="Text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/whiteText</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="TabLayoutText" parent="Text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/greyText</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="ListItemTitleText" parent="Text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:lineSpacingExtra">12sp</item>
+    </style>
+
+    <style name="ListItemDescriptionText" parent="Text">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">#808284</item>
+        <item name="android:lineSpacingExtra">10sp</item>
+    </style>
+
+    <style name="DetailsTitleText" parent="Text">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="DetailsShortDescriptionText" parent="Text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="DetailsDescriptionText" parent="Text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/blackText</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <style name="ButtonText" parent="Text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textColor">@color/whiteText</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:lineSpacingExtra">8sp</item>
+    </style>
+
+    <color name="blackText">#000000</color>
 </resources>

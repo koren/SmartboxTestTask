@@ -18,7 +18,8 @@ import software.smartbox.smartboxtesttask.api.SmartboxService;
 public class AppModule {
 
     //    private static String BASE_URL = "http://smartbox.software/";
-    private static String BASE_URL = "http://onekoren.000webhostapp.com/";
+//    private static String BASE_URL = "http://onekoren.000webhostapp.com/";
+    private static String BASE_URL = "http://192.168.0.100:12345/";
 
     @Provides
     Gson provideGson() {
@@ -29,19 +30,6 @@ public class AppModule {
     Executor provideExecutor() {
         return Executors.newSingleThreadExecutor();
     }
-
-//    @Provides
-//    @Singleton
-//    Repository provideRepository(SmartboxService smartboxService, Executor executor) {
-//        return new Repository(smartboxService, executor);
-//    }
-
-   /* return Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(LiveDataCallAdapterFactory())
-            .build()
-            .create(GithubService::class.java)*/
 
     @Provides
     Retrofit provideRetrofit(Gson gson) {

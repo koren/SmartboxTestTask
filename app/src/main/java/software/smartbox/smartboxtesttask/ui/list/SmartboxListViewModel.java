@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import software.smartbox.smartboxtesttask.data.ELocationType;
 import software.smartbox.smartboxtesttask.data.Location;
 import software.smartbox.smartboxtesttask.repository.Repository;
 
@@ -19,11 +20,14 @@ public class SmartboxListViewModel extends ViewModel {
         this.repository = repository;
     }
 
-    LiveData<List<Location>> getEvents() {
-        return repository.getEvents();
-    }
-
-    LiveData<List<Location>> getShops() {
-        return repository.getShops();
+    public LiveData<List<Location>> getLocation(ELocationType type) {
+        switch (type) {
+            case Event:
+                return repository.getEvents();
+            case Shop:
+                return repository.getShops();
+            default:
+                return null;
+        }
     }
 }
