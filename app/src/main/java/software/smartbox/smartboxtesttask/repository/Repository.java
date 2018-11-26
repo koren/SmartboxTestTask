@@ -15,8 +15,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import software.smartbox.smartboxtesttask.api.SmartboxService;
-import software.smartbox.smartboxtesttask.data.EItemType;
-import software.smartbox.smartboxtesttask.data.Item;
+import software.smartbox.smartboxtesttask.data.ELocationType;
+import software.smartbox.smartboxtesttask.data.Location;
 
 
 @Singleton
@@ -24,8 +24,8 @@ public class Repository {
 
     private final Executor executor;
     private final SmartboxService smartboxService;
-    private MutableLiveData<List<Item>> events = new MutableLiveData<>();
-    private MutableLiveData<List<Item>> shops = new MutableLiveData<>();
+    private MutableLiveData<List<Location>> events = new MutableLiveData<>();
+    private MutableLiveData<List<Location>> shops = new MutableLiveData<>();
 
     @Inject
     Repository(SmartboxService smartboxService, Executor executor) {
@@ -33,31 +33,31 @@ public class Repository {
         this.executor = executor;
     }
 
-    public LiveData<List<Item>> getEvents() {
+    public LiveData<List<Location>> getEvents() {
         return events;
     }
 
-    public LiveData<List<Item>> getShops() {
+    public LiveData<List<Location>> getShops() {
         return shops;
     }
 
     public void refreshData() {
         executor.execute(() ->
-                smartboxService.downloadFileWithFixedUrl().enqueue(new Callback<List<Item>>() {
+                smartboxService.downloadFileWithFixedUrl().enqueue(new Callback<List<Location>>() {
 
                     @Override
-                    public void onResponse(@NonNull Call<List<Item>> call, @NonNull Response<List<Item>> response) {
+                    public void onResponse(@NonNull Call<List<Location>> call, @NonNull Response<List<Location>> response) {
                         if (response.isSuccessful() && response.body() != null) {
-                            ArrayList<Item> eventList = new ArrayList<>();
-                            ArrayList<Item> shopList = new ArrayList<>();
-                            for (Item item : response.body()) {
+                            ArrayList<Location> eventList = new ArrayList<>();
+                            ArrayList<Location> shopList = new ArrayList<>();
+                            for (Location item : response.body()) {
 
                                 if (item.getType() == null)
                                     continue;
 
-                                if (item.getType().equals(EItemType.Event.toString())) {
+                                if (item.getType().equals(ELocationType.Event.toString())) {
                                     eventList.add(item);
-                                } else if (item.getType().equals(EItemType.Shop.toString())) {
+                                } else if (item.getType().equals(ELocationType.Shop.toString())) {
                                     shopList.add(item);
                                 }
                             }
@@ -68,7 +68,7 @@ public class Repository {
                     }
 
                     @Override
-                    public void onFailure(@NonNull Call<List<Item>> call, @NonNull Throwable t) {
+                    public void onFailure(@NonNull Call<List<Location>> call, @NonNull Throwable t) {
                         //todo implement alert
                     }
                 })

@@ -2,7 +2,7 @@ package software.smartbox.smartboxtesttask.data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Item {
+public class Location {
 
     @SerializedName("id")
     private Integer id;
@@ -11,10 +11,10 @@ public class Item {
     private String type;
 
     @SerializedName("title")
-    private String title;
+    public String title;
 
     @SerializedName("shortDescription")
-    private String shortDescription;
+    public String shortDescription;
 
     @SerializedName("description")
     private String description;
