@@ -19,5 +19,6 @@
             android:clipToPadding="false"
             android:paddingTop="21dp"
             app:adapter="@{viewModel.adapter}" />
+
     </android.support.constraint.ConstraintLayout>
 </layout>

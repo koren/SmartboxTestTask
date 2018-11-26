@@ -9,7 +9,6 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -27,8 +26,6 @@ import software.smartbox.smartboxtesttask.data.ELocationType;
 import software.smartbox.smartboxtesttask.data.Location;
 import software.smartbox.smartboxtesttask.databinding.ListFragmentBinding;
 import software.smartbox.smartboxtesttask.ui.details.SmartboxDetailsActivity;
-
-import static android.widget.GridLayout.VERTICAL;
 
 public class SmartboxListFragment extends Fragment implements Callback {
     private static final String TYPE = "TYPE";
