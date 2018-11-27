@@ -1,22 +1,21 @@
 package software.smartbox.smartboxtesttask.ui.list;
 
 
-import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -31,7 +30,6 @@ public class SmartboxListFragment extends Fragment implements Callback {
     private static final String TYPE = "TYPE";
     @Inject
     public ViewModelProvider.Factory viewModelFactory;
-    private SmartboxListViewModel viewModel;
     private ListFragmentBinding binding;
     private ELocationType type = ELocationType.Event;
 
@@ -54,7 +52,7 @@ public class SmartboxListFragment extends Fragment implements Callback {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.list_fragment, container, false);
 
         initRecyclerView(binding.getRoot());
@@ -72,19 +70,10 @@ public class SmartboxListFragment extends Fragment implements Callback {
         super.onActivityCreated(savedInstanceState);
         AndroidSupportInjection.inject(this);
 
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(SmartboxListViewModel.class);
-        viewModel.adapter.callback = this;
+        SmartboxListViewModel viewModel = ViewModelProviders.of(this, viewModelFactory).get(SmartboxListViewModel.class);
+        Objects.requireNonNull(viewModel.adapter.get()).callback = this;
+        viewModel.prepare(type);
         binding.setViewModel(viewModel);
-        LiveData<List<Location>> locations = viewModel.getLocation(type);
-        viewModel.adapter.submitList(locations.getValue(), type);
-        Log.d("TAG", "submitList: " + (locations.getValue() != null ? locations.getValue().size() : ""));
-        if (locations != null) {
-            locations.observe(this, events -> {
-                        viewModel.adapter.submitList(events, type);
-                        Log.d("TAG", "submitList: " + (locations.getValue() != null ? locations.getValue().size() : ""));
-                    }
-            );
-        }
     }
 
     @Override

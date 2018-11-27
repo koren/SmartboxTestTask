@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
+import java.util.Objects;
+
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
@@ -33,10 +35,8 @@ public class MainActivity extends AppCompatActivity implements HasSupportFragmen
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Android World");
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.android_world);
         TabLayout tabs = findViewById(R.id.tabs);
-        tabs.addTab(tabs.newTab().setText("Events"));
-        tabs.addTab(tabs.newTab().setText("Shops"));
 
         ViewPager viewPager = findViewById(R.id.viewpager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());

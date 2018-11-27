@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -53,8 +52,8 @@ public class SmartboxDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(type.presentation);
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(SmartboxDetailsViewModel.class);
-
         viewModel.setLocationData(locationId, type);
+
         binding.setViewModel(viewModel);
         binding.setClickListener(v -> {
             Location location = viewModel.getLocation();

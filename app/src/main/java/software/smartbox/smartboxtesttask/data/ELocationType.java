@@ -3,7 +3,7 @@ package software.smartbox.smartboxtesttask.data;
 import android.support.annotation.NonNull;
 
 public enum ELocationType {
-    Event("event", "Event"), Shop("shop", "Shop");
+    Event("event", "Events"), Shop("shop", "Shops");
 
     private final String name;
     public final String presentation;

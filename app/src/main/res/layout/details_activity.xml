@@ -123,12 +123,11 @@
 
         <Button
             android:id="@+id/button"
+            style="@style/Button"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:background="@color/button"
             android:onClick="@{clickListener}"
             android:text="@string/show_on_map"
-            android:textColor="@color/whiteText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

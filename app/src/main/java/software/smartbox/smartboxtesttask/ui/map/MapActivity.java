@@ -16,7 +16,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import software.smartbox.smartboxtesttask.R;
 
-
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final String LATITUDE = "LATITUDE";
@@ -44,6 +43,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
     }
 

@@ -46,9 +46,9 @@
         <item name="subtitleTextAppearance">@style/DetailsDescriptionText</item>
     </style>
 
-    <style name="Button">
-        <item name="subtitleTextAppearance">@style/ButtonText</item>
+    <style name="Button" parent="ButtonText">
         <item name="android:height">50dp</item>
+        <item name="android:background">@color/button</item>
     </style>
 
     <style name="Text">
@@ -106,10 +106,11 @@
 
     <style name="ButtonText" parent="Text">
         <item name="android:textSize">14sp</item>
+        <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textColor">@color/whiteText</item>
         <item name="android:letterSpacing">0.04</item>
-        <item name="android:gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
         <item name="android:lineSpacingExtra">8sp</item>
     </style>
 
