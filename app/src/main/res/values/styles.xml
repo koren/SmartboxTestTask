@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
         <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
+        <item name="toolbarStyle">@style/Toolbar</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -23,12 +24,12 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
-    <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
-        <item name="subtitleTextAppearance">@style/ToolbarText</item>
+    <style name="Toolbar" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="titleTextAppearance">@style/ToolbarText</item>
     </style>
 
-    <style name="TabLayout" parent="Widget.Design.TabLayout">
-        <item name="subtitleTextAppearance">@style/TabLayoutText</item>
+    <style name="TabLayout" parent="TextAppearance.Design.Tab">
+        <item name="tabTextAppearance">@style/TabLayoutText</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="tabIndicatorHeight">2dp</item>
         <item name="tabIndicatorColor">@color/tabIndicatorColor</item>
@@ -43,7 +44,7 @@
     <style name="DetailsShortDescription" parent="DetailsShortDescriptionText" />
 
     <style name="DetailsDescription">
-        <item name="subtitleTextAppearance">@style/DetailsDescriptionText</item>
+        <item name="android:textAppearance">@style/DetailsDescriptionText</item>
     </style>
 
     <style name="Button" parent="ButtonText">
@@ -65,6 +66,7 @@
     <style name="TabLayoutText" parent="Text">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/greyText</item>
+        <item name="android:textAllCaps">true</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:gravity">center_horizontal</item>
     </style>
@@ -113,6 +115,4 @@
         <item name="android:gravity">center</item>
         <item name="android:lineSpacingExtra">8sp</item>
     </style>
-
-    <color name="blackText">#000000</color>
 </resources>

@@ -9,5 +9,5 @@
     <color name="button">#7ab539</color>
     <color name="whiteText">@color/white</color>
     <color name="tabIndicatorColor">@color/white</color>
-
+    <color name="blackText">#000000</color>
 </resources>

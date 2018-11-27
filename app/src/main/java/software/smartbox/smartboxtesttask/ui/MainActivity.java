@@ -1,4 +1,4 @@
-package software.smartbox.smartboxtesttask;
+package software.smartbox.smartboxtesttask.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -14,6 +14,7 @@ import javax.inject.Inject;
 import dagger.android.AndroidInjection;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
+import software.smartbox.smartboxtesttask.R;
 import software.smartbox.smartboxtesttask.data.ELocationType;
 import software.smartbox.smartboxtesttask.ui.list.SmartboxListFragment;
 

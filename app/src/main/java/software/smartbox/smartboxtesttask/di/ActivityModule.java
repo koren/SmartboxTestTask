@@ -2,7 +2,7 @@ package software.smartbox.smartboxtesttask.di;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import software.smartbox.smartboxtesttask.MainActivity;
+import software.smartbox.smartboxtesttask.ui.MainActivity;
 import software.smartbox.smartboxtesttask.ui.details.SmartboxDetailsActivity;
 
 @Module
