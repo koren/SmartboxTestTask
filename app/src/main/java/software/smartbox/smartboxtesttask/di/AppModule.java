@@ -17,9 +17,7 @@ import software.smartbox.smartboxtesttask.api.SmartboxService;
 @Module(includes = ViewModelModule.class)
 public class AppModule {
 
-    //    private static String BASE_URL = "http://smartbox.software/";
-//    private static String BASE_URL = "http://onekoren.000webhostapp.com/";
-    private static String BASE_URL = "http://192.168.0.100:12345/";
+    private static String BASE_URL = "http://smartbox.software/";
 
     @Provides
     Gson provideGson() {
